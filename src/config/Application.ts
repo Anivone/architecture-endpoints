@@ -29,10 +29,10 @@ export class Application {
 
         const type = process.argv.slice(2)[0];
 
-        console.log('url: ', `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?authSource=admin`);
         const connection = mongoose.createConnection(
-            `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`
-            || this.MONGO_URL);
+            process.env.MONGO_USER
+            ? `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`
+            : this.MONGO_URL);
         const rabbit = await RabbitConfig.init();
 
         if (type === 'server') {
