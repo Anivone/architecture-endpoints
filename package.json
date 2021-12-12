@@ -6,6 +6,7 @@
   "scripts": {
     "start:server": "ts-node ./src/index.ts server",
     "start:worker": "ts-node ./src/index.ts worker",
+    "start:docker": "docker-compose up",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "awilix": "^6.0.0",
     "awilix-express": "^6.0.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.14",
     "redis": "^4.0.0",

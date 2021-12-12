@@ -5,7 +5,9 @@ export class RedisConfig {
     static client: any;
 
     constructor() {
-        RedisConfig.client = createClient();
+        RedisConfig.client = process.env.REDIS_CACHE_URL
+            ? createClient({ url: process.env.REDIS_CACHE_URL })
+            : createClient();
         RedisConfig.client.connect();
 
         process.on('exit', () => {

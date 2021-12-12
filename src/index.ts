@@ -1,5 +1,7 @@
 import { Application } from "./config/Application";
+import * as path from "path";
 
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const type = process.argv.slice(2)[0];
 
 Application.init().then((instance: Application) => {
